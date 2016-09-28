@@ -1,0 +1,343 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://data/gui/tracked_items/scripts/tracked_item.gd" type="Script" id=1]
+[ext_resource path="res://fonts/sansation/Sansation_Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/sansation/Sansation_Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://data/gui/buttons/btn_play_32x32.png" type="Texture" id=4]
+[ext_resource path="res://data/gui/buttons/btn_edit_32x32.png" type="Texture" id=5]
+[ext_resource path="res://data/gui/buttons/btn_delete_32x32.png" type="Texture" id=6]
+[ext_resource path="res://data/gui/buttons/btn_stop_32x32.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.271088, 0.29286, 0.367188, 1 )
+light_color = Color( 0.520996, 0.523598, 0.6875, 1 )
+dark_color = Color( 0.517647, 0.521569, 0.686275, 1 )
+border_size = 2
+border_blend = false
+draw_bg = true
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 18
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+
+font/size = 24
+font/use_mipmaps = true
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[node name="tracked_item" type="PanelContainer"]
+
+visibility/self_opacity = 0.0
+anchor/right = 1
+rect/min_size = Vector2( 974, 62 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_styles/panel = SubResource( 1 )
+script/script = ExtResource( 1 )
+is_active = false
+note = "Tracked Item Notes"
+
+[node name="padding" type="PanelContainer" parent="."]
+
+visibility/self_opacity = 0.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 978.0
+margin/bottom = 64.0
+
+[node name="container" type="HBoxContainer" parent="padding"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 969.0
+margin/bottom = 55.0
+alignment = 0
+
+[node name="column_1" type="VBoxContainer" parent="padding/container"]
+
+rect/min_size = Vector2( 500, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 500.0
+margin/bottom = 48.0
+alignment = 0
+
+[node name="task_description" type="Label" parent="padding/container/column_1"]
+
+rect/min_size = Vector2( 400, 20 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 0.0
+margin/right = 450.0
+margin/bottom = 20.0
+custom_fonts/font = SubResource( 2 )
+text = "Tracked Item Notes"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="project_name_task_name" type="Label" parent="padding/container/column_1"]
+
+rect/min_size = Vector2( 400, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 24.0
+margin/right = 450.0
+margin/bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+text = "Project Name - Task Name"
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="column_2" type="VBoxContainer" parent="padding/container"]
+
+rect/min_size = Vector2( 120, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 504.0
+margin/top = 0.0
+margin/right = 624.0
+margin/bottom = 48.0
+alignment = 0
+
+[node name="time_now" type="Label" parent="padding/container/column_2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 120.0
+margin/bottom = 27.0
+custom_fonts/font = SubResource( 4 )
+text = "00:00:00"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="time_before_after" type="Label" parent="padding/container/column_2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 31.0
+margin/right = 120.0
+margin/bottom = 48.0
+custom_fonts/font = SubResource( 5 )
+text = "00:00 -"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="column_3" type="VBoxContainer" parent="padding/container"]
+
+rect/min_size = Vector2( 190, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 628.0
+margin/top = 0.0
+margin/right = 818.0
+margin/bottom = 48.0
+alignment = 0
+
+[node name="hbox_menu_normal" type="HBoxContainer" parent="padding/container/column_3"]
+
+rect/min_size = Vector2( 180, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 190.0
+margin/bottom = 44.0
+alignment = 2
+
+[node name="btn_play" type="Button" parent="padding/container/column_3/hbox_menu_normal"]
+
+visibility/visible = false
+rect/min_size = Vector2( 44, 44 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 0.0
+margin/right = 94.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 4 )
+flat = false
+
+[node name="btn_edit" type="Button" parent="padding/container/column_3/hbox_menu_normal"]
+
+rect/min_size = Vector2( 44, 44 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 98.0
+margin/top = 0.0
+margin/right = 142.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 5 )
+flat = false
+
+[node name="btn_delete" type="Button" parent="padding/container/column_3/hbox_menu_normal"]
+
+rect/min_size = Vector2( 44, 44 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 146.0
+margin/top = 0.0
+margin/right = 190.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 6 )
+flat = false
+
+[node name="hbox_menu_active" type="HBoxContainer" parent="padding/container/column_3"]
+
+visibility/visible = false
+rect/min_size = Vector2( 180, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 190.0
+margin/bottom = 44.0
+alignment = 2
+
+[node name="btn_stop" type="Button" parent="padding/container/column_3/hbox_menu_active"]
+
+rect/min_size = Vector2( 44, 44 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 146.0
+margin/top = 0.0
+margin/right = 190.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 7 )
+flat = false
+
+[node name="active_bg" type="PanelContainer" parent="."]
+
+visibility/visible = false
+visibility/behind_parent = true
+rect/min_size = Vector2( 974, 60 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 978.0
+margin/bottom = 64.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="normal_bg" type="PanelContainer" parent="."]
+
+visibility/behind_parent = true
+rect/min_size = Vector2( 974, 60 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 978.0
+margin/bottom = 64.0
+custom_styles/panel = SubResource( 6 )
+
+[connection signal="pressed" from="padding/container/column_3/hbox_menu_normal/btn_play" to="." method="_on_btn_play_pressed"]
+
+[connection signal="pressed" from="padding/container/column_3/hbox_menu_normal/btn_edit" to="." method="_on_btn_edit_pressed"]
+
+[connection signal="pressed" from="padding/container/column_3/hbox_menu_normal/btn_delete" to="." method="_on_btn_delete_pressed"]
+
+[connection signal="pressed" from="padding/container/column_3/hbox_menu_active/btn_stop" to="." method="_on_btn_stop_pressed"]
+
+
